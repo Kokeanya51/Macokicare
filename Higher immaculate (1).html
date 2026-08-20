@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">  
+<link rel="stylesheet" href="style.css">/head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Immaculate Educational Consult — Examination Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233F;
+    --paper:#ECEFE9;
+    --paper-soft:#F5F6F1;
+    --gold:#C89B3C;
+    --teal:#2F7A6B;
+    --stamp:#C1501F;
+    --line:rgba(22,35,63,0.16);
+    --line-strong:rgba(22,35,63,0.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal);}
+  :focus-visible{outline:2px solid var(--stamp);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(236,239,233,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto;
+    gap:16px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--stamp);display:inline-block;flex-shrink:0;}
+  .nav-links{display:flex;gap:28px;font-size:0.92rem;font-weight:500;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--ink);transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;
+    padding:11px 20px;border-radius:2px;border:1px solid var(--ink);
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    background:var(--ink);color:var(--paper);transition:transform 0.2s ease, background 0.2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--stamp);border-color:var(--stamp);transform:translateY(-2px);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:72px 0 60px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(2.1rem,4.5vw,3.2rem);line-height:1.08;margin:18px 0 20px;}
+  .hero h1 em{font-style:normal;color:var(--stamp);}
+  .hero p.lead{font-size:1.08rem;max-width:44ch;color:rgba(22,35,63,0.78);margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats div{font-family:'IBM Plex Mono',monospace;}
+  .hero-stats .num{font-size:1.4rem;font-weight:600;color:var(--ink);}
+  .hero-stats .lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.6);}
+
+  /* Boarding pass hero card — signature element */
+  .ticket{
+    background:var(--paper-soft);
+    border:1px solid var(--line-strong);
+    border-radius:6px;
+    position:relative;
+    box-shadow:0 24px 48px -24px rgba(22,35,63,0.35);
+    animation:stampIn 0.7s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes stampIn{
+    from{opacity:0;transform:translateY(14px) rotate(-1.2deg);}
+    to{opacity:1;transform:translateY(0) rotate(-1.2deg);}
+  }
+  .ticket-main{padding:26px 26px 20px;display:flex;justify-content:space-between;gap:16px;}
+  .ticket-brand{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}
+  .ticket-route{display:flex;align-items:center;gap:14px;margin-top:14px;}
+  .ticket-route .city{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;}
+  .ticket-route .city small{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;font-weight:400;letter-spacing:0.08em;color:rgba(22,35,63,0.55);text-transform:uppercase;margin-top:2px;}
+  .ticket-route .path{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--line-strong) 0 6px,transparent 6px 11px);position:relative;}
+  .ticket-route .path::after{content:"›";position:absolute;right:-2px;top:-11px;color:var(--stamp);font-size:1rem;}
+  .stamp-graphic{
+    width:64px;height:64px;border:2px solid var(--stamp);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transform:rotate(-14deg);
+    color:var(--stamp);font-family:'IBM Plex Mono',monospace;font-size:0.55rem;
+    letter-spacing:0.04em;text-transform:uppercase;text-align:center;line-height:1.15;
+    flex-shrink:0;
+  }
+  .ticket-perf{
+    position:relative;height:0;border-top:1px dashed var(--line-strong);margin:0 0;
+  }
+  .ticket-perf::before,.ticket-perf::after{
+    content:"";position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--paper);
+  }
+  .ticket-perf::before{left:-9px;}
+  .ticket-perf::after{right:-9px;}
+  .ticket-stub{padding:18px 26px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .ticket-stub div{font-family:'IBM Plex Mono',monospace;}
+  .ticket-stub .lbl{font-size:0.56rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.5);}
+  .ticket-stub .val{font-size:0.82rem;font-weight:500;margin-top:3px;}
+  .barcode{display:flex;gap:2px;align-items:flex-end;height:22px;margin-top:6px;}
+  .barcode span{width:2px;background:var(--ink);opacity:0.6;}
+
+  /* ---------- SERVICES ---------- */
+  .section{padding:76px 0;}
+  .section-head{max-width:56ch;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:14px;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .service-card{
+    background:var(--paper-soft);border:1px solid var(--line);border-radius:6px;
+    padding:26px 22px;position:relative;overflow:hidden;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 34px -22px rgba(22,35,63,0.4);border-color:var(--line-strong);}
+  .service-card .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--stamp);
+  }
+  .service-card h3{font-size:1.15rem;margin:12px 0 10px;}
+  .service-card p{font-size:0.92rem;color:rgba(22,35,63,0.72);}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink);color:var(--paper);}
+  .process .section-head p{color:rgba(236,239,233,0.72);}
+  .process .eyebrow{color:var(--gold);}
+  .process .eyebrow::before{background:var(--gold);}
+  .process-line{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px;}
+  .process-line::before{
+    content:"";position:absolute;top:19px;left:0;right:0;height:1px;
+    background:repeating-linear-gradient(90deg,rgba(236,239,233,0.35) 0 8px,transparent 8px 14px);
+    z-index:0;
+  }
+  .process-step{position:relative;z-index:1;}
+  .process-step .num{
+    width:40px;height:40px;border-radius:50%;background:var(--ink);border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;
+    font-size:0.85rem;color:var(--gold);margin-bottom:16px;
+  }
+  .process-step h3{font-size:1.05rem;margin-bottom:8px;color:var(--paper);}
+  .process-step p{font-size:0.88rem;color:rgba(236,239,233,0.7);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .t-card{
+    background:var(--paper-soft);border:1px solid var(--line);border-radius:6px;padding:22px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .t-card .route-mini{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--teal);}
+  .t-card .route-mini .arrow{color:var(--stamp);}
+  .t-card p.quote{font-size:0.94rem;font-style:normal;color:rgba(22,35,63,0.85);}
+  .t-card .who{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(22,35,63,0.55);border-top:1px dashed var(--line-strong);padding-top:12px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--paper-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:52px;align-items:start;}
+  .contact-info h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:16px;}
+  .contact-info p{color:rgba(22,35,63,0.75);margin-bottom:26px;max-width:42ch;}
+  .contact-detail{display:flex;gap:12px;margin-bottom:16px;font-size:0.94rem;}
+  .contact-detail .k{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);min-width:76px;padding-top:2px;flex-shrink:0;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.6);}
+  .field input,.field select,.field textarea{
+    border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);
+    padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:0.95rem;color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:96px;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--stamp);outline-offset:1px;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  #form-note{font-size:0.85rem;color:var(--teal);display:none;font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:22px;font-size:0.85rem;}
+  .fine{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(22,35,63,0.5);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .services-grid,.testimonial-row{grid-template-columns:1fr;}
+    .process-line{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .process-line::before{display:none;}
+    .contact-grid{grid-template-columns:1fr;}
+    .row-2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="dot"></span>Higher Immaculate <span style="font-weight:400;font-size:0.92rem;">Educational Consult</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+2347066450490" class="btn">Call now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Examination registration &amp; educational services</div>
+      <h1>Your registration is the <em>ticket</em> to your next result.</h1>
+      <p class="lead">Higher Immaculate Educational Consult handles your WAEC, NECO, GCE and UTME registration correctly and on time — so exam day is the only thing you have to worry about.</p>
+      <div class="hero-ctas">
+        <a href="tel:+2347066450490" class="btn">Call 0706 645 0490</a>
+        <a href="#services" class="btn ghost">See our services</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">WAEC</div><div class="lbl">Registration</div></div>
+        <div><div class="num">NECO</div><div class="lbl">Registration</div></div>
+        <div><div class="num">UTME</div><div class="lbl">Registration</div></div>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-main">
+        <div>
+          <div class="ticket-brand">Examination Registration · Boarding Pass</div>
+          <div class="ticket-route">
+            <div class="city">YOU<small>Candidate</small></div>
+            <div class="path"></div>
+            <div class="city">EXAM<small>Registered &amp; ready</small></div>
+          </div>
+        </div>
+        <div class="stamp-graphic">Verified<br>Registration</div>
+      </div>
+      <div class="ticket-perf"></div>
+      <div class="ticket-stub">
+        <div><div class="lbl">Exams</div><div class="val">WAEC / NECO / GCE</div></div>
+        <div><div class="lbl">Status</div><div class="val">Slots open</div></div>
+        <div><div class="lbl">Office</div><div class="val">Ikorodu, Lagos</div></div>
+        <div style="grid-column:1/4;">
+          <div class="lbl">Reference</div>
+          <div class="barcode" aria-hidden="true">
+            <span style="height:100%"></span><span style="height:60%"></span><span style="height:85%"></span>
+            <span style="height:40%"></span><span style="height:100%"></span><span style="height:70%"></span>
+            <span style="height:55%"></span><span style="height:90%"></span><span style="height:65%"></span>
+            <span style="height:100%"></span><span style="height:45%"></span><span style="height:80%"></span>
+            <span style="height:60%"></span><span style="height:95%"></span><span style="height:50%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What we do</div>
+      <h2>Every registration, done correctly the first time</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="tag">01 · WAEC</div>
+        <h3>WAEC Registration</h3>
+        <p>Full registration for the West African Senior School Certificate Examination, subject selection included.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="tag">02 · NECO</div>
+        <h3>NECO Registration</h3>
+        <p>National Examinations Council registration handled end to end, with correct biodata and subject combinations.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="tag">03 · GCE</div>
+        <h3>GCE Registration</h3>
+        <p>Second-chance and private-candidate GCE registration for students retaking or adding subjects.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="tag">04 · UTME</div>
+        <h3>UTME Registration</h3>
+        <p>JAMB UTME registration, institution and course selection guidance included.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="tag">05 · Support</div>
+        <h3>Educational services</h3>
+        <p>Result checking, correction of registration errors, and general guidance on the exam process.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="tag">06 · Guidance</div>
+        <h3>Subject &amp; course counselling</h3>
+        <p>Help choosing the right subject combination for the course and institution a student is aiming for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">How it works</div>
+      <h2>Four steps from walk-in to exam-ready</h2>
+    </div>
+    <div class="process-line">
+      <div class="process-step reveal">
+        <div class="num">01</div>
+        <h3>Walk in</h3>
+        <p>Bring your details to our Ikorodu office, or call ahead to confirm what's needed.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">02</div>
+        <h3>Register</h3>
+        <p>We complete your WAEC, NECO, GCE or UTME registration accurately, on the current portal.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">03</div>
+        <h3>Confirm</h3>
+        <p>You receive your registration slip or exam number, checked for errors before you leave.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="num">04</div>
+        <h3>Follow up</h3>
+        <p>We're reachable for result checking, corrections, or any issue that comes up before exam day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What candidates say</div>
+      <h2>Registrations completed without stress</h2>
+    </div>
+    <div class="testimonial-row">
+      <div class="t-card reveal">
+        <div class="route-mini">WAEC <span class="arrow">›</span> Registered on time</div>
+        <p class="quote">I almost missed the deadline, but they sorted my WAEC registration in one visit and even fixed a spelling error on my name.</p>
+        <div class="who">Parent, Ikorodu</div>
+      </div>
+      <div class="t-card reveal">
+        <div class="route-mini">UTME <span class="arrow">›</span> Course selected correctly</div>
+        <p class="quote">They helped my son pick the right subject combination for his UTME so it actually matches his course choice.</p>
+        <div class="who">Parent, Lagos</div>
+      </div>
+      <div class="t-card reveal">
+        <div class="route-mini">GCE <span class="arrow">›</span> Retake completed</div>
+        <p class="quote">Straightforward and honest people. My GCE registration was done properly and I got my slip the same week.</p>
+        <div class="who">Private candidate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <div class="eyebrow">Visit or call us</div>
+      <h2>Start your registration today</h2>
+      <p>Walk into our office in Ikorodu or call ahead — we'll tell you exactly what documents and payment you need to bring.</p>
+      <div class="contact-detail"><div class="k">Phone</div><div>0706 645 0490 · 0805 409 5056</div></div>
+      <div class="contact-detail"><div class="k">Email</div><div>adebunmi2013.aa@gmail.com</div></div>
+      <div class="contact-detail"><div class="k">Office</div><div>4 Alhaji Ganiyu Olugbade Street, First Gate, Ikorodu, Lagos</div></div>
+      <div class="contact-detail"><div class="k">Hours</div><div>Mon – Sat, 9am – 5pm</div></div>
+    </div>
+    <form id="contactForm" class="reveal" onsubmit="return handleSubmit(event)">
+      <div class="row-2">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email">
+      </div>
+      <div class="field">
+        <label for="exam">Registration needed for</label>
+        <select id="exam" name="exam">
+          <option>WAEC</option>
+          <option>NECO</option>
+          <option>GCE</option>
+          <option>UTME</option>
+          <option>Other educational service</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Any details we should know</label>
+        <textarea id="message" name="message" placeholder="e.g. My son needs to register for WAEC and add two subjects..."></textarea>
+      </div>
+      <button type="submit" class="btn" style="align-self:flex-start;">Submit request</button>
+      <div id="form-note">✓ Thanks — your request has been noted. We'll be in touch shortly.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="logo"><span class="dot"></span>Higher Immaculate Educational Consult</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="fine">© 2026 Higher Immaculate Educational Consult. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', ()=>{
+    const isShown = navLinks.style.display === 'flex';
+    navLinks.style.display = isShown ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '58px';
+    navLinks.style.right = '24px';
+    navLinks.style.background = 'var(--paper-soft)';
+    navLinks.style.border = '1px solid var(--line)';
+    navLinks.style.borderRadius = '6px';
+    navLinks.style.padding = '16px 22px';
+    navLinks.style.gap = '14px';
+  });
+
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('form-note').style.display = 'block';
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
