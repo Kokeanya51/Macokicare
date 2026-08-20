@@ -4,480 +4,3998 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Higher Immaculate Educational Consult — Examination Registration</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<title>MACOKI Healthcare & Wellness Platform</title>
+
+<meta name="description"
+content="MACOKI Healthcare & Wellness Platform - Health information, complaints, appointments, healthcare professionals and facilities.">
+
 <style>
-  :root{
-    --ink:#16233F;
-    --paper:#ECEFE9;
-    --paper-soft:#F5F6F1;
-    --gold:#C89B3C;
-    --teal:#2F7A6B;
-    --stamp:#C1501F;
-    --line:rgba(22,35,63,0.16);
-    --line-strong:rgba(22,35,63,0.4);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans',sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
-  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--teal);
-    display:flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal);}
-  :focus-visible{outline:2px solid var(--stamp);outline-offset:3px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important;transition:none !important;}
-  }
 
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(236,239,233,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 24px;max-width:1120px;margin:0 auto;
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f8fb;
+    color:#17202a;
+    line-height:1.6;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    background:linear-gradient(135deg,#00796b,#004d40);
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    background:white;
+    color:#00796b;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.logo h1{
+    font-size:20px;
+}
+
+.logo span{
+    font-size:11px;
+    opacity:.85;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
     gap:16px;
-  }
-  .logo{
-    font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;
-    display:flex;align-items:center;gap:8px;
-  }
-  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--stamp);display:inline-block;flex-shrink:0;}
-  .nav-links{display:flex;gap:28px;font-size:0.92rem;font-weight:500;}
-  .nav-links a{position:relative;padding-bottom:4px;}
-  .nav-links a::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
-    background:var(--ink);transition:width 0.25s ease;
-  }
-  .nav-links a:hover::after{width:100%;}
-  .btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;
-    padding:11px 20px;border-radius:2px;border:1px solid var(--ink);
-    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-    background:var(--ink);color:var(--paper);transition:transform 0.2s ease, background 0.2s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{background:var(--stamp);border-color:var(--stamp);transform:translateY(-2px);}
-  .btn.ghost{background:transparent;color:var(--ink);}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
-  .menu-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
+    align-items:center;
+}
 
-  /* ---------- HERO ---------- */
-  .hero{padding:72px 0 60px;}
-  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-  .hero h1{font-size:clamp(2.1rem,4.5vw,3.2rem);line-height:1.08;margin:18px 0 20px;}
-  .hero h1 em{font-style:normal;color:var(--stamp);}
-  .hero p.lead{font-size:1.08rem;max-width:44ch;color:rgba(22,35,63,0.78);margin-bottom:30px;}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
-  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
-  .hero-stats div{font-family:'IBM Plex Mono',monospace;}
-  .hero-stats .num{font-size:1.4rem;font-weight:600;color:var(--ink);}
-  .hero-stats .lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.6);}
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+}
 
-  /* Boarding pass hero card — signature element */
-  .ticket{
-    background:var(--paper-soft);
-    border:1px solid var(--line-strong);
-    border-radius:6px;
-    position:relative;
-    box-shadow:0 24px 48px -24px rgba(22,35,63,0.35);
-    animation:stampIn 0.7s cubic-bezier(.2,.8,.2,1) both;
-  }
-  @keyframes stampIn{
-    from{opacity:0;transform:translateY(14px) rotate(-1.2deg);}
-    to{opacity:1;transform:translateY(0) rotate(-1.2deg);}
-  }
-  .ticket-main{padding:26px 26px 20px;display:flex;justify-content:space-between;gap:16px;}
-  .ticket-brand{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}
-  .ticket-route{display:flex;align-items:center;gap:14px;margin-top:14px;}
-  .ticket-route .city{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;}
-  .ticket-route .city small{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;font-weight:400;letter-spacing:0.08em;color:rgba(22,35,63,0.55);text-transform:uppercase;margin-top:2px;}
-  .ticket-route .path{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--line-strong) 0 6px,transparent 6px 11px);position:relative;}
-  .ticket-route .path::after{content:"›";position:absolute;right:-2px;top:-11px;color:var(--stamp);font-size:1rem;}
-  .stamp-graphic{
-    width:64px;height:64px;border:2px solid var(--stamp);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;transform:rotate(-14deg);
-    color:var(--stamp);font-family:'IBM Plex Mono',monospace;font-size:0.55rem;
-    letter-spacing:0.04em;text-transform:uppercase;text-align:center;line-height:1.15;
-    flex-shrink:0;
-  }
-  .ticket-perf{
-    position:relative;height:0;border-top:1px dashed var(--line-strong);margin:0 0;
-  }
-  .ticket-perf::before,.ticket-perf::after{
-    content:"";position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--paper);
-  }
-  .ticket-perf::before{left:-9px;}
-  .ticket-perf::after{right:-9px;}
-  .ticket-stub{padding:18px 26px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .ticket-stub div{font-family:'IBM Plex Mono',monospace;}
-  .ticket-stub .lbl{font-size:0.56rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.5);}
-  .ticket-stub .val{font-size:0.82rem;font-weight:500;margin-top:3px;}
-  .barcode{display:flex;gap:2px;align-items:flex-end;height:22px;margin-top:6px;}
-  .barcode span{width:2px;background:var(--ink);opacity:0.6;}
+nav a:hover{
+    color:#b2dfdb;
+}
 
-  /* ---------- SERVICES ---------- */
-  .section{padding:76px 0;}
-  .section-head{max-width:56ch;margin-bottom:44px;}
-  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:14px;}
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .service-card{
-    background:var(--paper-soft);border:1px solid var(--line);border-radius:6px;
-    padding:26px 22px;position:relative;overflow:hidden;
-    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 34px -22px rgba(22,35,63,0.4);border-color:var(--line-strong);}
-  .service-card .tag{
-    font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--stamp);
-  }
-  .service-card h3{font-size:1.15rem;margin:12px 0 10px;}
-  .service-card p{font-size:0.92rem;color:rgba(22,35,63,0.72);}
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
 
-  /* ---------- PROCESS ---------- */
-  .process{background:var(--ink);color:var(--paper);}
-  .process .section-head p{color:rgba(236,239,233,0.72);}
-  .process .eyebrow{color:var(--gold);}
-  .process .eyebrow::before{background:var(--gold);}
-  .process-line{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px;}
-  .process-line::before{
-    content:"";position:absolute;top:19px;left:0;right:0;height:1px;
-    background:repeating-linear-gradient(90deg,rgba(236,239,233,0.35) 0 8px,transparent 8px 14px);
-    z-index:0;
-  }
-  .process-step{position:relative;z-index:1;}
-  .process-step .num{
-    width:40px;height:40px;border-radius:50%;background:var(--ink);border:1.5px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;
-    font-size:0.85rem;color:var(--gold);margin-bottom:16px;
-  }
-  .process-step h3{font-size:1.05rem;margin-bottom:8px;color:var(--paper);}
-  .process-step p{font-size:0.88rem;color:rgba(236,239,233,0.7);}
 
-  /* ---------- TESTIMONIALS ---------- */
-  .testimonial-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .t-card{
-    background:var(--paper-soft);border:1px solid var(--line);border-radius:6px;padding:22px;
-    display:flex;flex-direction:column;gap:14px;
-  }
-  .t-card .route-mini{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--teal);}
-  .t-card .route-mini .arrow{color:var(--stamp);}
-  .t-card p.quote{font-size:0.94rem;font-style:normal;color:rgba(22,35,63,0.85);}
-  .t-card .who{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(22,35,63,0.55);border-top:1px dashed var(--line-strong);padding-top:12px;}
+/* =========================================================
+   HERO
+========================================================= */
 
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--paper-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:52px;align-items:start;}
-  .contact-info h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:16px;}
-  .contact-info p{color:rgba(22,35,63,0.75);margin-bottom:26px;max-width:42ch;}
-  .contact-detail{display:flex;gap:12px;margin-bottom:16px;font-size:0.94rem;}
-  .contact-detail .k{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);min-width:76px;padding-top:2px;flex-shrink:0;}
-  form{display:flex;flex-direction:column;gap:16px;}
-  .field{display:flex;flex-direction:column;gap:6px;}
-  .field label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(22,35,63,0.6);}
-  .field input,.field select,.field textarea{
-    border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);
-    padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:0.95rem;color:var(--ink);
-  }
-  .field textarea{resize:vertical;min-height:96px;}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--stamp);outline-offset:1px;}
-  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  #form-note{font-size:0.85rem;color:var(--teal);display:none;font-family:'IBM Plex Mono',monospace;}
+.hero{
+    background:linear-gradient(135deg,#00695c,#009688);
+    color:white;
+    padding:75px 20px;
+}
 
-  /* ---------- FOOTER ---------- */
-  footer{padding:40px 0;}
-  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  .footer-links{display:flex;gap:22px;font-size:0.85rem;}
-  .fine{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(22,35,63,0.5);}
+.hero-content{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+    align-items:center;
+}
 
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease, transform 0.6s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
+.hero h2{
+    font-size:45px;
+    line-height:1.15;
+    margin-bottom:20px;
+}
 
-  @media (max-width:860px){
-    .nav-links{display:none;}
-    .menu-toggle{display:block;}
-    .hero-grid{grid-template-columns:1fr;}
-    .services-grid,.testimonial-row{grid-template-columns:1fr;}
-    .process-line{grid-template-columns:1fr 1fr;row-gap:36px;}
-    .process-line::before{display:none;}
-    .contact-grid{grid-template-columns:1fr;}
-    .row-2{grid-template-columns:1fr;}
-  }
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.hero-search{
+    background:white;
+    padding:10px;
+    border-radius:12px;
+    display:flex;
+    max-width:650px;
+}
+
+.hero-search input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:15px;
+    font-size:16px;
+    color:#333;
+}
+
+.hero-search button{
+    background:#00796b;
+    color:white;
+    border:none;
+    padding:0 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.13);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(8px);
+}
+
+.hero-card-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.hero-card h3{
+    margin-bottom:15px;
+}
+
+.hero-card p{
+    font-size:15px;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+    padding:65px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:#00695c;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#607d8b;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    display:inline-block;
+    text-decoration:none;
+    margin:3px;
+}
+
+.btn-primary{
+    background:#00796b;
+    color:white;
+}
+
+.btn-secondary{
+    background:#e0f2f1;
+    color:#00695c;
+}
+
+.btn-danger{
+    background:#c62828;
+    color:white;
+}
+
+.btn-dark{
+    background:#263238;
+    color:white;
+}
+
+.btn:hover{
+    opacity:.9;
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.service-icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#00695c;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#607d8b;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box{
+    max-width:850px;
+    margin:0 auto 30px;
+    background:white;
+    padding:10px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    display:flex;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:13px;
+    font-size:16px;
+}
+
+.search-results{
+    max-width:900px;
+    margin:auto;
+}
+
+.result{
+    background:white;
+    padding:22px;
+    margin-bottom:15px;
+    border-left:5px solid #009688;
+    border-radius:10px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.result h3{
+    color:#00695c;
+    margin-bottom:8px;
+}
+
+.result ul{
+    margin:12px 0 12px 20px;
+}
+
+
+/* =========================================================
+   FORMS
+========================================================= */
+
+.form-card{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd6d9;
+    border-radius:8px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#009688;
+}
+
+
+/* =========================================================
+   PROFESSIONALS
+========================================================= */
+
+.professional{
+    text-align:center;
+}
+
+.avatar{
+    width:75px;
+    height:75px;
+    margin:auto auto 15px;
+    border-radius:50%;
+    background:#e0f2f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+}
+
+
+/* =========================================================
+   FACILITIES
+========================================================= */
+
+.facility{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.facility-location{
+    color:#607d8b;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   APPOINTMENT
+========================================================= */
+
+.appointment-reference{
+    background:#e8f5e9;
+    border-left:5px solid #2e7d32;
+    padding:20px;
+    border-radius:8px;
+    margin-top:20px;
+}
+
+
+/* =========================================================
+   HEALTH LIBRARY
+========================================================= */
+
+.library-card{
+    min-height:190px;
+}
+
+
+/* =========================================================
+   AI ASSISTANT
+========================================================= */
+
+.ai-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.ai-warning{
+    background:#fff8e1;
+    border-left:4px solid #ffb300;
+    padding:12px;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+.chat{
+    height:300px;
+    overflow-y:auto;
+    padding:15px;
+    background:#f4f8fb;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.message{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+    max-width:80%;
+}
+
+.user-message{
+    background:#c8e6c9;
+    margin-left:auto;
+}
+
+.ai-message{
+    background:#e0f2f1;
+}
+
+.chat-input{
+    display:flex;
+    gap:10px;
+}
+
+.chat-input input{
+    flex:1;
+    padding:12px;
+    border:1px solid #ccd6d9;
+    border-radius:8px;
+    outline:none;
+}
+
+
+/* =========================================================
+   EMERGENCY
+========================================================= */
+
+.emergency{
+    background:#fff3f3;
+    border-top:5px solid #c62828;
+}
+
+.emergency-box{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.emergency h2{
+    color:#c62828;
+}
+
+
+/* =========================================================
+   PATIENT DASHBOARD
+========================================================= */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:240px 1fr;
+    gap:20px;
+}
+
+.sidebar{
+    background:#004d40;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.sidebar h3{
+    margin-bottom:20px;
+}
+
+.sidebar button{
+    display:block;
+    width:100%;
+    padding:12px;
+    margin-bottom:8px;
+    border:none;
+    background:transparent;
+    color:white;
+    text-align:left;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.sidebar button:hover{
+    background:#00695c;
+}
+
+.dashboard-content{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
+    padding:20px;
+    border-radius:12px;
+    background:#e0f2f1;
+}
+
+.stat p{
+    color:#607d8b;
+}
+
+.stat h3{
+    font-size:28px;
+    color:#00695c;
+}
+
+
+/* =========================================================
+   PORTALS
+========================================================= */
+
+.portal-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+
+/* =========================================================
+   EMERGENCY
+========================================================= */
+
+.emergency-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#c62828;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#003c33;
+    color:white;
+    padding:45px 20px 20px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+footer h3{
+    margin-bottom:15px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin-bottom:8px;
+    color:#c8d8d5;
+}
+
+footer a{
+    color:#c8d8d5;
+    text-decoration:none;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.15);
+    margin-top:30px;
+    padding-top:20px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    max-width:600px;
+    width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:15px;
+    padding:30px;
+}
+
+.close{
+    float:right;
+    font-size:25px;
+    cursor:pointer;
+    color:#555;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#263238;
+    color:white;
+    padding:15px 20px;
+    border-radius:8px;
+    display:none;
+    z-index:3000;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#004d40;
+        flex-direction:column;
+        padding:20px;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+}
+
+@media(max-width:600px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+    .hero-search{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .hero-search button{
+        padding:14px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .facility{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .chat-input{
+        flex-direction:column;
+    }
+}
+
 </style>
 </head>
+
+
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-  <nav>
-    <div class="logo"><span class="dot"></span>Higher Immaculate <span style="font-weight:400;font-size:0.92rem;">Educational Consult</span></div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#testimonials">Stories</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="tel:+2347066450490" class="btn">Call now</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-  </nav>
+
+<div class="navbar">
+
+<div class="logo">
+
+<div class="logo-icon">🏥</div>
+
+<div>
+
+<h1>MACOKI HEALTHCARE</h1>
+
+<span>
+Healthcare & Wellness Platform
+</span>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<ul id="navMenu">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#services">Services</a></li>
+
+<li><a href="#problem">Health Search</a></li>
+
+<li><a href="#complaint">Complaint</a></li>
+
+<li><a href="#professionals">Professionals</a></li>
+
+<li><a href="#facilities">Facilities</a></li>
+
+<li><a href="#library">Library</a></li>
+
+<li><a href="#dashboard">Portal</a></li>
+
+</ul>
+
+</nav>
+
+
+<button
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open menu">
+
+☰
+
+</button>
+
+</div>
+
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Examination registration &amp; educational services</div>
-      <h1>Your registration is the <em>ticket</em> to your next result.</h1>
-      <p class="lead">Higher Immaculate Educational Consult handles your WAEC, NECO, GCE and UTME registration correctly and on time — so exam day is the only thing you have to worry about.</p>
-      <div class="hero-ctas">
-        <a href="tel:+2347066450490" class="btn">Call 0706 645 0490</a>
-        <a href="#services" class="btn ghost">See our services</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="num">WAEC</div><div class="lbl">Registration</div></div>
-        <div><div class="num">NECO</div><div class="lbl">Registration</div></div>
-        <div><div class="num">UTME</div><div class="lbl">Registration</div></div>
-      </div>
-    </div>
 
-    <div class="ticket">
-      <div class="ticket-main">
-        <div>
-          <div class="ticket-brand">Examination Registration · Boarding Pass</div>
-          <div class="ticket-route">
-            <div class="city">YOU<small>Candidate</small></div>
-            <div class="path"></div>
-            <div class="city">EXAM<small>Registered &amp; ready</small></div>
-          </div>
-        </div>
-        <div class="stamp-graphic">Verified<br>Registration</div>
-      </div>
-      <div class="ticket-perf"></div>
-      <div class="ticket-stub">
-        <div><div class="lbl">Exams</div><div class="val">WAEC / NECO / GCE</div></div>
-        <div><div class="lbl">Status</div><div class="val">Slots open</div></div>
-        <div><div class="lbl">Office</div><div class="val">Ikorodu, Lagos</div></div>
-        <div style="grid-column:1/4;">
-          <div class="lbl">Reference</div>
-          <div class="barcode" aria-hidden="true">
-            <span style="height:100%"></span><span style="height:60%"></span><span style="height:85%"></span>
-            <span style="height:40%"></span><span style="height:100%"></span><span style="height:70%"></span>
-            <span style="height:55%"></span><span style="height:90%"></span><span style="height:65%"></span>
-            <span style="height:100%"></span><span style="height:45%"></span><span style="height:80%"></span>
-            <span style="height:60%"></span><span style="height:95%"></span><span style="height:50%"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div>
+
+<h2>
+Your Health.<br>
+Our Connection.
+</h2>
+
+<p>
+Search health information, make a complaint,
+find healthcare professionals, book appointments
+and connect with hospitals and clinics.
+</p>
+
+
+<div class="hero-search">
+
+<input
+id="heroSearch"
+type="text"
+placeholder="Search your health problem..."
+>
+
+<button onclick="searchHealth()">
+Search
+</button>
+
+</div>
+
+
+<br>
+
+
+<button
+class="btn btn-primary"
+onclick="scrollToSection('complaint')">
+
+📝 Make a Complaint
+
+</button>
+
+
+<button
+class="btn btn-secondary"
+onclick="scrollToSection('appointment')">
+
+📅 Book Appointment
+
+</button>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-card-icon">
+🩺
+</div>
+
+<h3>
+MACOKI Health Assistant
+</h3>
+
+<p>
+Get general health information and guidance.
+The platform does not replace examination,
+diagnosis or emergency medical care.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="scrollToSection('assistant')">
+
+Talk to Health Assistant
+
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">What we do</div>
-      <h2>Every registration, done correctly the first time</h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="tag">01 · WAEC</div>
-        <h3>WAEC Registration</h3>
-        <p>Full registration for the West African Senior School Certificate Examination, subject selection included.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="tag">02 · NECO</div>
-        <h3>NECO Registration</h3>
-        <p>National Examinations Council registration handled end to end, with correct biodata and subject combinations.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="tag">03 · GCE</div>
-        <h3>GCE Registration</h3>
-        <p>Second-chance and private-candidate GCE registration for students retaking or adding subjects.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="tag">04 · UTME</div>
-        <h3>UTME Registration</h3>
-        <p>JAMB UTME registration, institution and course selection guidance included.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="tag">05 · Support</div>
-        <h3>Educational services</h3>
-        <p>Result checking, correction of registration errors, and general guidance on the exam process.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="tag">06 · Guidance</div>
-        <h3>Subject &amp; course counselling</h3>
-        <p>Help choosing the right subject combination for the course and institution a student is aiming for.</p>
-      </div>
-    </div>
-  </div>
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Healthcare Services
+</h2>
+
+<p>
+Access different areas of healthcare from one platform.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="service-icon">👨‍⚕️</div>
+
+<h3>Doctors</h3>
+
+<p>
+General medical assessment and specialist services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">👩‍⚕️</div>
+
+<h3>Nursing</h3>
+
+<p>
+Nursing care, patient education and follow-up.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🤰</div>
+
+<h3>Midwifery</h3>
+
+<p>
+Antenatal, maternity and postnatal services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🌍</div>
+
+<h3>Public Health</h3>
+
+<p>
+Prevention, health promotion and population health.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🏘️</div>
+
+<h3>Community Health</h3>
+
+<p>
+Community-based health education and services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🧪</div>
+
+<h3>Laboratory</h3>
+
+<p>
+Laboratory testing and result management.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🚻</div>
+
+<h3>Urology</h3>
+
+<p>
+Urinary and urological healthcare services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">👂</div>
+
+<h3>ENT</h3>
+
+<p>
+Ear, nose and throat healthcare.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">💊</div>
+
+<h3>Pharmacy</h3>
+
+<p>
+Medication information and pharmacy services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🦷</div>
+
+<h3>Dental Health</h3>
+
+<p>
+Oral and dental health services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">👁️</div>
+
+<h3>Eye Health</h3>
+
+<p>
+Eye health information and professional services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="service-icon">🥗</div>
+
+<h3>Nutrition</h3>
+
+<p>
+Nutrition education and professional support.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section process" id="process">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">How it works</div>
-      <h2>Four steps from walk-in to exam-ready</h2>
-    </div>
-    <div class="process-line">
-      <div class="process-step reveal">
-        <div class="num">01</div>
-        <h3>Walk in</h3>
-        <p>Bring your details to our Ikorodu office, or call ahead to confirm what's needed.</p>
-      </div>
-      <div class="process-step reveal">
-        <div class="num">02</div>
-        <h3>Register</h3>
-        <p>We complete your WAEC, NECO, GCE or UTME registration accurately, on the current portal.</p>
-      </div>
-      <div class="process-step reveal">
-        <div class="num">03</div>
-        <h3>Confirm</h3>
-        <p>You receive your registration slip or exam number, checked for errors before you leave.</p>
-      </div>
-      <div class="process-step reveal">
-        <div class="num">04</div>
-        <h3>Follow up</h3>
-        <p>We're reachable for result checking, corrections, or any issue that comes up before exam day.</p>
-      </div>
-    </div>
-  </div>
+
+<!-- =====================================================
+     HEALTH PROBLEM SEARCH
+===================================================== -->
+
+<section id="problem">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+🔎 What Is My Health Problem?
+</h2>
+
+<p>
+Search for a symptom or health concern and receive
+general educational information and possible next steps.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<input
+id="problemInput"
+type="text"
+placeholder="Example: frequent urination, headache, ear pain..."
+>
+
+<button
+class="btn btn-primary"
+onclick="searchProblem()">
+
+Search
+
+</button>
+
+</div>
+
+
+<div
+id="searchResults"
+class="search-results">
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="testimonials">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">What candidates say</div>
-      <h2>Registrations completed without stress</h2>
-    </div>
-    <div class="testimonial-row">
-      <div class="t-card reveal">
-        <div class="route-mini">WAEC <span class="arrow">›</span> Registered on time</div>
-        <p class="quote">I almost missed the deadline, but they sorted my WAEC registration in one visit and even fixed a spelling error on my name.</p>
-        <div class="who">Parent, Ikorodu</div>
-      </div>
-      <div class="t-card reveal">
-        <div class="route-mini">UTME <span class="arrow">›</span> Course selected correctly</div>
-        <p class="quote">They helped my son pick the right subject combination for his UTME so it actually matches his course choice.</p>
-        <div class="who">Parent, Lagos</div>
-      </div>
-      <div class="t-card reveal">
-        <div class="route-mini">GCE <span class="arrow">›</span> Retake completed</div>
-        <p class="quote">Straightforward and honest people. My GCE registration was done properly and I got my slip the same week.</p>
-        <div class="who">Private candidate</div>
-      </div>
-    </div>
-  </div>
+
+<!-- =====================================================
+     COMPLAINT
+===================================================== -->
+
+<section id="complaint">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+📝 Patient Complaint Portal
+</h2>
+
+<p>
+Tell us about your health concern and select the type
+of attention you need.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<form id="complaintForm">
+
+
+<div class="form-group">
+
+<label>
+Patient Name
+</label>
+
+<input
+type="text"
+id="patientName"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Age
+</label>
+
+<input
+type="number"
+id="patientAge"
+min="0"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="patientPhone"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Complaint Category
+</label>
+
+<select id="complaintCategory">
+
+<option>General Medical</option>
+
+<option>Nursing</option>
+
+<option>Midwifery</option>
+
+<option>Public Health</option>
+
+<option>Community Health</option>
+
+<option>Laboratory</option>
+
+<option>Urology</option>
+
+<option>ENT</option>
+
+<option>Dental</option>
+
+<option>Eye Health</option>
+
+<option>Nutrition</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Describe Your Complaint
+</label>
+
+<textarea
+id="complaintText"
+placeholder="Describe your health concern..."
+required></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+How would you like to receive attention?
+</label>
+
+<select id="attentionType">
+
+<option>
+Physical Appointment
+</option>
+
+<option>
+Online Consultation Request
+</option>
+
+<option>
+Laboratory Service
+</option>
+
+<option>
+Find Healthcare Facility
+</option>
+
+<option>
+Request a Call Back
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Submit Complaint
+
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-info reveal">
-      <div class="eyebrow">Visit or call us</div>
-      <h2>Start your registration today</h2>
-      <p>Walk into our office in Ikorodu or call ahead — we'll tell you exactly what documents and payment you need to bring.</p>
-      <div class="contact-detail"><div class="k">Phone</div><div>0706 645 0490 · 0805 409 5056</div></div>
-      <div class="contact-detail"><div class="k">Email</div><div>adebunmi2013.aa@gmail.com</div></div>
-      <div class="contact-detail"><div class="k">Office</div><div>4 Alhaji Ganiyu Olugbade Street, First Gate, Ikorodu, Lagos</div></div>
-      <div class="contact-detail"><div class="k">Hours</div><div>Mon – Sat, 9am – 5pm</div></div>
-    </div>
-    <form id="contactForm" class="reveal" onsubmit="return handleSubmit(event)">
-      <div class="row-2">
-        <div class="field">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" required>
-        </div>
-        <div class="field">
-          <label for="phone">Phone number</label>
-          <input id="phone" name="phone" type="tel" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="email">Email address</label>
-        <input id="email" name="email" type="email">
-      </div>
-      <div class="field">
-        <label for="exam">Registration needed for</label>
-        <select id="exam" name="exam">
-          <option>WAEC</option>
-          <option>NECO</option>
-          <option>GCE</option>
-          <option>UTME</option>
-          <option>Other educational service</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="message">Any details we should know</label>
-        <textarea id="message" name="message" placeholder="e.g. My son needs to register for WAEC and add two subjects..."></textarea>
-      </div>
-      <button type="submit" class="btn" style="align-self:flex-start;">Submit request</button>
-      <div id="form-note">✓ Thanks — your request has been noted. We'll be in touch shortly.</div>
-    </form>
-  </div>
+
+<!-- =====================================================
+     PROFESSIONALS
+===================================================== -->
+
+<section id="professionals">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+👨‍⚕️ Healthcare Professionals
+</h2>
+
+<p>
+Connect with the appropriate healthcare professional.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card professional">
+
+<div class="avatar">
+👨‍⚕️
+</div>
+
+<h3>
+Doctor
+</h3>
+
+<p>
+General and specialist medical care.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Doctor')">
+
+Book Doctor
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+👩‍⚕️
+</div>
+
+<h3>
+Nurse
+</h3>
+
+<p>
+Nursing care and patient support.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Nurse')">
+
+Book Nurse
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+🤰
+</div>
+
+<h3>
+Midwife
+</h3>
+
+<p>
+Maternal and reproductive healthcare.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Midwife')">
+
+Book Midwife
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+🌍
+</div>
+
+<h3>
+Public Health Officer
+</h3>
+
+<p>
+Prevention and population health.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Public Health Officer')">
+
+Book
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+🏘️
+</div>
+
+<h3>
+CHEW
+</h3>
+
+<p>
+Community healthcare and referrals.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('CHEW')">
+
+Book CHEW
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+🧪
+</div>
+
+<h3>
+Medical Laboratory Scientist
+</h3>
+
+<p>
+Laboratory investigation services.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Laboratory Scientist')">
+
+Book Lab
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+🚻
+</div>
+
+<h3>
+Urologist
+</h3>
+
+<p>
+Urinary and urological healthcare.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('Urologist')">
+
+Book Urologist
+
+</button>
+
+</div>
+
+
+<div class="card professional">
+
+<div class="avatar">
+👂
+</div>
+
+<h3>
+ENT Specialist
+</h3>
+
+<p>
+Ear, nose and throat services.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="bookProfessional('ENT Specialist')">
+
+Book ENT
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =====================================================
+     FACILITIES
+===================================================== -->
+
+<section id="facilities">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+🏥 Find a Healthcare Facility
+</h2>
+
+<p>
+Find hospitals, clinics, laboratories and diagnostic centres.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<input
+id="facilitySearch"
+placeholder="Search hospital, clinic, laboratory or specialty..."
+>
+
+<button
+class="btn btn-primary"
+onclick="searchFacilities()">
+
+Search
+
+</button>
+
+</div>
+
+
+<div id="facilityResults">
+
+
+<div class="card facility">
+
+<div>
+
+<h3>
+🏥 MACOKI Clinic & Maternity Home
+</h3>
+
+<p>
+General Healthcare • Maternity • Community Health
+</p>
+
+<p class="facility-location">
+📍 Abia State, Nigeria
+</p>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="bookFacility('MACOKI Clinic & Maternity Home')">
+
+Book Appointment
+
+</button>
+
+</div>
+
+
+<br>
+
+
+<div class="card facility">
+
+<div>
+
+<h3>
+🧪 MACOKI Diagnostic Laboratory
+</h3>
+
+<p>
+Laboratory investigation and diagnostic services.
+</p>
+
+<p class="facility-location">
+📍 Abia State, Nigeria
+</p>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="bookFacility('MACOKI Diagnostic Laboratory')">
+
+Book Laboratory
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     APPOINTMENT
+===================================================== -->
+
+<section id="appointment">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+📅 Online Appointment
+</h2>
+
+<p>
+Book an appointment with a healthcare professional or facility.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<form id="appointmentForm">
+
+
+<div class="form-group">
+
+<label>
+Patient Name
+</label>
+
+<input
+id="appointmentName"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+id="appointmentPhone"
+type="tel"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Healthcare Service
+</label>
+
+<select id="appointmentService">
+
+<option>General Doctor</option>
+
+<option>Nursing</option>
+
+<option>Midwifery</option>
+
+<option>Public Health</option>
+
+<option>Community Health</option>
+
+<option>Laboratory</option>
+
+<option>Urology</option>
+
+<option>ENT</option>
+
+<option>Dental</option>
+
+<option>Eye Health</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Facility
+</label>
+
+<select id="appointmentFacility">
+
+<option>
+MACOKI Clinic & Maternity Home
+</option>
+
+<option>
+MACOKI Diagnostic Laboratory
+</option>
+
+<option>
+Other Hospital / Clinic
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Date
+</label>
+
+<input
+type="date"
+id="appointmentDate"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Time
+</label>
+
+<input
+type="time"
+id="appointmentTime"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Additional Information
+</label>
+
+<textarea
+id="appointmentNote"
+placeholder="Optional information..."></textarea>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Submit Appointment Request
+
+</button>
+
+
+</form>
+
+
+<div id="appointmentConfirmation"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     HEALTH LIBRARY
+===================================================== -->
+
+<section id="library">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+📚 Health Library
+</h2>
+
+<p>
+Educational resources for patients, students and healthcare workers.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card library-card">
+
+<div class="service-icon">🌍</div>
+
+<h3>
+Public Health
+</h3>
+
+<p>
+Health promotion, prevention, epidemiology and population health.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Public Health')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🏘️</div>
+
+<h3>
+Community Health
+</h3>
+
+<p>
+Primary healthcare and community health education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Community Health')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">👩‍⚕️</div>
+
+<h3>
+Nursing
+</h3>
+
+<p>
+Nursing education and patient care resources.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Nursing')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🤰</div>
+
+<h3>
+Midwifery
+</h3>
+
+<p>
+Maternal and child health education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Midwifery')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🧪</div>
+
+<h3>
+Laboratory Science
+</h3>
+
+<p>
+Laboratory investigation and diagnostic education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Laboratory Science')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🚻</div>
+
+<h3>
+Urology
+</h3>
+
+<p>
+General urinary and urological health information.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Urology')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">👂</div>
+
+<h3>
+ENT
+</h3>
+
+<p>
+Ear, nose and throat health education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('ENT')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">💊</div>
+
+<h3>
+Pharmacology
+</h3>
+
+<p>
+General medication and medicine education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Pharmacology')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🥗</div>
+
+<h3>
+Nutrition
+</h3>
+
+<p>
+Nutrition and healthy lifestyle education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Nutrition')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🦠</div>
+
+<h3>
+Infectious Diseases
+</h3>
+
+<p>
+Disease prevention and health education.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Infectious Diseases')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">❤️</div>
+
+<h3>
+Chronic Diseases
+</h3>
+
+<p>
+General information about non-communicable diseases.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Chronic Diseases')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="card library-card">
+
+<div class="service-icon">🎓</div>
+
+<h3>
+Student Health
+</h3>
+
+<p>
+Health education resources for students and trainees.
+</p>
+
+<br>
+
+<button
+class="btn btn-secondary"
+onclick="libraryMessage('Student Health')">
+
+Explore
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     HEALTH ASSISTANT
+===================================================== -->
+
+<section id="assistant">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+🤖 MACOKI Health Assistant
+</h2>
+
+<p>
+Ask a general health question.
+</p>
+
+</div>
+
+
+<div class="ai-box">
+
+
+<div class="ai-warning">
+
+<strong>Important:</strong>
+This assistant provides general health information.
+It does not diagnose medical conditions or replace
+assessment by a qualified healthcare professional.
+
+</div>
+
+
+<div
+class="chat"
+id="chatBox">
+
+
+<div class="message ai-message">
+
+Hello! I am the MACOKI Health Assistant.
+Tell me about a general health concern and I can
+help you navigate to the appropriate healthcare service.
+
+</div>
+
+
+</div>
+
+
+<div class="chat-input">
+
+<input
+id="chatInput"
+placeholder="Type your health question..."
+>
+
+<button
+class="btn btn-primary"
+onclick="sendMessage()">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EMERGENCY
+===================================================== -->
+
+<section class="emergency">
+
+<div class="emergency-box">
+
+<h2>
+🚑 Emergency Medical Attention
+</h2>
+
+<br>
+
+<p>
+If you believe you or another person has a serious
+or life-threatening medical problem, seek immediate
+medical attention from an appropriate emergency
+healthcare facility.
+</p>
+
+<br>
+
+<p class="emergency-number">
+🚨 EMERGENCY
+</p>
+
+<br>
+
+<button
+class="btn btn-danger"
+onclick="emergencyAlert()">
+
+Emergency Guidance
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PATIENT DASHBOARD
+===================================================== -->
+
+<section id="dashboard">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+👤 Patient Portal
+</h2>
+
+<p>
+Manage your healthcare activities.
+</p>
+
+</div>
+
+
+<div class="dashboard">
+
+
+<div class="sidebar">
+
+<h3>
+Patient Portal
+</h3>
+
+
+<button onclick="dashboardView('My Profile')">
+👤 My Profile
+</button>
+
+
+<button onclick="dashboardView('Appointments')">
+📅 My Appointments
+</button>
+
+
+<button onclick="dashboardView('Complaints')">
+📝 My Complaints
+</button>
+
+
+<button onclick="dashboardView('Laboratory Results')">
+🧪 Laboratory Results
+</button>
+
+
+<button onclick="dashboardView('Referrals')">
+🔄 Referrals
+</button>
+
+
+<button onclick="dashboardView('Documents')">
+📄 Documents
+</button>
+
+
+<button onclick="dashboardView('Health Library')">
+📚 Health Library
+</button>
+
+
+</div>
+
+
+<div class="dashboard-content">
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<p>
+Appointments
+</p>
+
+<h3 id="appointmentCount">
+0
+</h3>
+
+</div>
+
+
+<div class="stat">
+
+<p>
+Complaints
+</p>
+
+<h3 id="complaintCount">
+0
+</h3>
+
+</div>
+
+
+<div class="stat">
+
+<p>
+Laboratory Results
+</p>
+
+<h3>
+0
+</h3>
+
+</div>
+
+
+<div class="stat">
+
+<p>
+Referrals
+</p>
+
+<h3>
+0
+</h3>
+
+</div>
+
+
+</div>
+
+
+<h2 id="dashboardTitle">
+Welcome to Patient Portal
+</h2>
+
+
+<br>
+
+
+<p id="dashboardText">
+
+Your appointments, complaints,
+laboratory results, referrals and
+documents will appear here.
+
+</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFESSIONAL / FACILITY PORTALS
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Professional & Facility Portals
+</h2>
+
+<p>
+Separate access for healthcare providers and facilities.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="portal-icon">
+👨‍⚕️
+</div>
+
+<h3>
+Professional Portal
+</h3>
+
+<p>
+For doctors, nurses, midwives, CHEWs,
+public health professionals and specialists.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="openModal('loginModal')">
+
+Professional Login
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="portal-icon">
+🏢
+</div>
+
+<h3>
+Facility Portal
+</h3>
+
+<p>
+For hospitals, clinics and healthcare facilities
+to manage appointments and patient requests.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="openModal('loginModal')">
+
+Facility Login
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="portal-icon">
+🧪
+</div>
+
+<h3>
+Laboratory Portal
+</h3>
+
+<p>
+For laboratories to manage test requests
+and laboratory results.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="openModal('loginModal')">
+
+Laboratory Login
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="portal-icon">
+🌍
+</div>
+
+<h3>
+Public Health Portal
+</h3>
+
+<p>
+Manage health education, community programmes,
+referrals and public health activities.
+</p>
+
+<br>
+
+<button
+class="btn btn-primary"
+onclick="openModal('loginModal')">
+
+Public Health Login
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-  <div class="wrap footer-grid">
-    <div class="logo"><span class="dot"></span>Higher Immaculate Educational Consult</div>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="fine">© 2026 Higher Immaculate Educational Consult. All rights reserved.</div>
-  </div>
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+🏥 MACOKI HEALTHCARE
+</h3>
+
+<p>
+Healthcare information, care navigation,
+appointments and healthcare facility connection.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Healthcare
+</h3>
+
+<ul>
+
+<li>Doctors</li>
+<li>Nursing</li>
+<li>Midwifery</li>
+<li>Public Health</li>
+<li>Community Health</li>
+<li>Laboratory</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3>
+Specialties
+</h3>
+
+<ul>
+
+<li>Urology</li>
+<li>ENT</li>
+<li>Dental</li>
+<li>Eye Health</li>
+<li>Nutrition</li>
+<li>Pharmacy</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3>
+Patient Services
+</h3>
+
+<ul>
+
+<li>
+<a href="#complaint">
+Make a Complaint
+</a>
+</li>
+
+<li>
+<a href="#appointment">
+Book Appointment
+</a>
+</li>
+
+<li>
+<a href="#facilities">
+Find Facility
+</a>
+</li>
+
+<li>
+<a href="#library">
+Health Library
+</a>
+</li>
+
+<li>
+<a href="#dashboard">
+Patient Portal
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 MACOKI Healthcare & Wellness Platform.
+All rights reserved.
+
+</div>
+
 </footer>
 
+
+<!-- =====================================================
+     LOGIN MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="loginModal">
+
+<div class="modal-content">
+
+<span
+class="close"
+onclick="closeModal('loginModal')">
+
+&times;
+
+</span>
+
+<h2>
+🔐 Portal Login
+</h2>
+
+<br>
+
+<form id="loginForm">
+
+
+<div class="form-group">
+
+<label>
+Email / Phone
+</label>
+
+<input
+type="text"
+id="loginUser"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="loginPassword"
+required>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Login
+
+</button>
+
+
+<button
+class="btn btn-secondary"
+type="button"
+onclick="openRegister()">
+
+Create Account
+
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     REGISTER MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="registerModal">
+
+<div class="modal-content">
+
+<span
+class="close"
+onclick="closeModal('registerModal')">
+
+&times;
+
+</span>
+
+<h2>
+👤 Create Account
+</h2>
+
+<br>
+
+<form id="registerForm">
+
+
+<div class="form-group">
+
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+id="registerName"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="registerPhone"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Email
+</label>
+
+<input
+type="email"
+id="registerEmail"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Account Type
+</label>
+
+<select id="registerType">
+
+<option>Patient</option>
+<option>Doctor</option>
+<option>Nurse</option>
+<option>Midwife</option>
+<option>CHEW</option>
+<option>Public Health Professional</option>
+<option>Laboratory Scientist</option>
+<option>Healthcare Facility</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="registerPassword"
+required>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Create Account
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast">
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+
+
+/* =====================================================
+   BASIC NAVIGATION
+===================================================== */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navMenu")
+    .classList.toggle("show");
+
+}
+
+
+function scrollToSection(id){
+
+    const element=document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   HOME SEARCH
+===================================================== */
+
+function searchHealth(){
+
+    const input=document
+    .getElementById("heroSearch")
+    .value
+    .trim();
+
+    if(!input){
+
+        showToast("Please enter a health concern.");
+
+        return;
+
+    }
+
+    document
+    .getElementById("problemInput")
+    .value=input;
+
+    scrollToSection("problem");
+
+    setTimeout(searchProblem,400);
+
+}
+
+
+/* =====================================================
+   HEALTH PROBLEM SEARCH
+===================================================== */
+
+function searchProblem(){
+
+    const input=document
+    .getElementById("problemInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const results=document
+    .getElementById("searchResults");
+
+
+    if(!input){
+
+        results.innerHTML=`
+
+        <div class="result">
+
+        <h3>
+        Enter a health concern
+        </h3>
+
+        <p>
+        Examples: frequent urination, headache,
+        ear pain, pregnancy concern, cough or fever.
+        </p>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let content="";
+
+
+    /* URINARY */
+
+    if(
+        input.includes("urine") ||
+        input.includes("urination") ||
+        input.includes("urinary")
+    ){
+
+        content=`
+
+        <div class="result">
+
+        <h3>
+        🚻 Urinary Health Concern
+        </h3>
+
+        <p>
+        Urinary symptoms can have different causes.
+        Proper assessment depends on the person's
+        symptoms, medical history and examination.
+        </p>
+
+        <br>
+
+        <strong>
+        Possible healthcare pathways:
+        </strong>
+
+        <ul>
+
+        <li>
+        General medical assessment
+        </li>
+
+        <li>
+        Laboratory assessment where clinically appropriate
+        </li>
+
+        <li>
+        Urology assessment where indicated
+        </li>
+
+        </ul>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookProfessional('Doctor')">
+
+        General Medical Assessment
+
+        </button>
+
+        <button
+        class="btn btn-secondary"
+        onclick="bookProfessional('Urologist')">
+
+        Urology
+
+        </button>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* EAR / NOSE / THROAT */
+
+    else if(
+        input.includes("ear") ||
+        input.includes("nose") ||
+        input.includes("throat")
+    ){
+
+        content=`
+
+        <div class="result">
+
+        <h3>
+        👂 ENT Health Concern
+        </h3>
+
+        <p>
+        Ear, nose and throat symptoms can have
+        several causes and may require professional
+        assessment.
+        </p>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookProfessional('ENT Specialist')">
+
+        Book ENT Assessment
+
+        </button>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* PREGNANCY */
+
+    else if(
+        input.includes("pregnan") ||
+        input.includes("antenatal") ||
+        input.includes("maternity")
+    ){
+
+        content=`
+
+        <div class="result">
+
+        <h3>
+        🤰 Maternal Health
+        </h3>
+
+        <p>
+        Pregnancy-related concerns should be assessed
+        by an appropriately qualified healthcare professional.
+        </p>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookProfessional('Midwife')">
+
+        Book Midwife
+
+        </button>
+
+        <button
+        class="btn btn-secondary"
+        onclick="bookProfessional('Doctor')">
+
+        Book Doctor
+
+        </button>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* HEADACHE */
+
+    else if(
+        input.includes("headache") ||
+        input.includes("head pain")
+    ){
+
+        content=`
+
+        <div class="result">
+
+        <h3>
+        🧠 Headache
+        </h3>
+
+        <p>
+        Headache can have many causes. General medical
+        assessment may be appropriate, particularly when
+        symptoms are persistent, severe, unusual or associated
+        with other concerning symptoms.
+        </p>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookProfessional('Doctor')">
+
+        Book Medical Assessment
+
+        </button>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* GENERAL */
+
+    else{
+
+        content=`
+
+        <div class="result">
+
+        <h3>
+        🩺 General Health Concern
+        </h3>
+
+        <p>
+        The search result does not establish a diagnosis.
+        Different health conditions can cause similar symptoms.
+        </p>
+
+        <p>
+        Consider submitting your complaint or booking
+        an assessment with a qualified healthcare professional.
+        </p>
+
+        <button
+        class="btn btn-primary"
+        onclick="scrollToSection('complaint')">
+
+        Make a Complaint
+
+        </button>
+
+        <button
+        class="btn btn-secondary"
+        onclick="bookProfessional('Doctor')">
+
+        Book Doctor
+
+        </button>
+
+        </div>
+
+        `;
+
+    }
+
+
+    results.innerHTML=content;
+
+}
+
+
+/* =====================================================
+   PROFESSIONAL BOOKING
+===================================================== */
+
+function bookProfessional(professional){
+
+    const service=document
+    .getElementById("appointmentService");
+
+    const mapping={
+
+        "Doctor":"General Doctor",
+        "Nurse":"Nursing",
+        "Midwife":"Midwifery",
+        "Public Health Officer":"Public Health",
+        "CHEW":"Community Health",
+        "Laboratory Scientist":"Laboratory",
+        "Urologist":"Urology",
+        "ENT Specialist":"ENT"
+
+    };
+
+
+    if(mapping[professional]){
+
+        service.value=mapping[professional];
+
+    }
+
+
+    scrollToSection("appointment");
+
+}
+
+
+/* =====================================================
+   FACILITY BOOKING
+===================================================== */
+
+function bookFacility(facility){
+
+    const select=document
+    .getElementById("appointmentFacility");
+
+
+    for(let option of select.options){
+
+        if(option.text===facility){
+
+            select.value=facility;
+
+        }
+
+    }
+
+
+    scrollToSection("appointment");
+
+}
+
+
+/* =====================================================
+   FACILITY SEARCH
+===================================================== */
+
+function searchFacilities(){
+
+    const query=document
+    .getElementById("facilitySearch")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const results=document
+    .getElementById("facilityResults");
+
+
+    if(!query){
+
+        showToast("Enter a facility, specialty or service.");
+
+        return;
+
+    }
+
+
+    const matches=[];
+
+
+    if(
+        "macoki clinic maternity hospital clinic maternity community health"
+        .includes(query)
+    ){
+
+        matches.push(`
+
+        <div class="card facility">
+
+        <div>
+
+        <h3>
+        🏥 MACOKI Clinic & Maternity Home
+        </h3>
+
+        <p>
+        General Healthcare • Maternity • Community Health
+        </p>
+
+        <p class="facility-location">
+        📍 Abia State, Nigeria
+        </p>
+
+        </div>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookFacility('MACOKI Clinic & Maternity Home')">
+
+        Book Appointment
+
+        </button>
+
+        </div>
+
+        `);
+
+    }
+
+
+    if(
+        "laboratory diagnostic lab test blood urine"
+        .includes(query)
+    ){
+
+        matches.push(`
+
+        <div class="card facility">
+
+        <div>
+
+        <h3>
+        🧪 MACOKI Diagnostic Laboratory
+        </h3>
+
+        <p>
+        Laboratory investigation and diagnostic services.
+        </p>
+
+        <p class="facility-location">
+        📍 Abia State, Nigeria
+        </p>
+
+        </div>
+
+        <button
+        class="btn btn-primary"
+        onclick="bookFacility('MACOKI Diagnostic Laboratory')">
+
+        Book Laboratory
+
+        </button>
+
+        </div>
+
+        `);
+
+    }
+
+
+    if(matches.length===0){
+
+        results.innerHTML=`
+
+        <div class="result">
+
+        <h3>
+        No facility found in this prototype
+        </h3>
+
+        <p>
+        The full platform can later connect to a
+        real database containing hospitals, clinics,
+        laboratories and specialists.
+        </p>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    results.innerHTML=matches.join("<br>");
+
+}
+
+
+/* =====================================================
+   COMPLAINT FORM
+===================================================== */
+
+document
+.getElementById("complaintForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const caseID=
+    "MAC-CMP-" +
+    new Date().getFullYear() +
+    "-" +
+    Math.floor(100000+Math.random()*900000);
+
+
+    let count=
+    Number(
+        localStorage.getItem("complaints") || 0
+    ) + 1;
+
+
+    localStorage.setItem(
+        "complaints",
+        count
+    );
+
+
+    document
+    .getElementById("complaintCount")
+    .textContent=count;
+
+
+    showToast(
+        "Complaint submitted successfully."
+    );
+
+
+    alert(
+        "Complaint submitted successfully.\n\n" +
+        "Case ID: " +
+        caseID +
+        "\n\n" +
+        "Keep this reference for follow-up."
+    );
+
+
+    this.reset();
+
+});
+
+
+/* =====================================================
+   APPOINTMENT FORM
+===================================================== */
+
+document
+.getElementById("appointmentForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const reference=
+    "MAC-APT-" +
+    new Date().getFullYear() +
+    "-" +
+    Math.floor(100000+Math.random()*900000);
+
+
+    let count=
+    Number(
+        localStorage.getItem("appointments") || 0
+    ) + 1;
+
+
+    localStorage.setItem(
+        "appointments",
+        count
+    );
+
+
+    document
+    .getElementById("appointmentCount")
+    .textContent=count;
+
+
+    document
+    .getElementById("appointmentConfirmation")
+    .innerHTML=`
+
+    <div class="appointment-reference">
+
+    <h3>
+    ✅ Appointment Request Received
+    </h3>
+
+    <p>
+    Your reference number is:
+    </p>
+
+    <strong>
+    ${reference}
+    </strong>
+
+    <p>
+    The healthcare facility must confirm
+    the appointment before it is considered final.
+    </p>
+
+    </div>
+
+    `;
+
+
+    this.reset();
+
+});
+
+
+/* =====================================================
+   HEALTH ASSISTANT
+===================================================== */
+
+function sendMessage(){
+
+    const input=document
+    .getElementById("chatInput");
+
+    const text=input.value.trim();
+
+
+    if(!text){
+
+        return;
+
+    }
+
+
+    const chat=document
+    .getElementById("chatBox");
+
+
+    chat.innerHTML+=`
+
+    <div class="message user-message">
+
+    ${escapeHTML(text)}
+
+    </div>
+
+    `;
+
+
+    const lower=text.toLowerCase();
+
+    let response;
+
+
+    if(
+        lower.includes("urine") ||
+        lower.includes("urination")
+    ){
+
+        response=
+        "Urinary symptoms can have several causes. " +
+        "A healthcare professional can assess the symptoms " +
+        "and determine whether medical or laboratory assessment " +
+        "is appropriate.";
+
+    }
+
+
+    else if(
+        lower.includes("pregnan") ||
+        lower.includes("antenatal")
+    ){
+
+        response=
+        "Pregnancy-related concerns should be assessed by " +
+        "a qualified midwife, doctor or appropriate maternity service.";
+
+    }
+
+
+    else if(
+        lower.includes("ear") ||
+        lower.includes("nose") ||
+        lower.includes("throat")
+    ){
+
+        response=
+        "Ear, nose and throat concerns may require assessment " +
+        "by a doctor or ENT specialist.";
+
+    }
+
+
+    else if(
+        lower.includes("emergency") ||
+        lower.includes("severe") ||
+        lower.includes("unconscious")
+    ){
+
+        response=
+        "If you believe this is a medical emergency, seek " +
+        "immediate care at an appropriate emergency healthcare facility.";
+
+    }
+
+
+    else{
+
+        response=
+        "I can provide general health information and help " +
+        "you navigate to an appropriate service, but I cannot " +
+        "diagnose your condition.";
+
+    }
+
+
+    setTimeout(function(){
+
+        chat.innerHTML+=`
+
+        <div class="message ai-message">
+
+        ${response}
+
+        </div>
+
+        `;
+
+
+        chat.scrollTop=chat.scrollHeight;
+
+    },500);
+
+
+    input.value="";
+
+}
+
+
+/* =====================================================
+   HTML ESCAPING
+===================================================== */
+
+function escapeHTML(text){
+
+    const div=document.createElement("div");
+
+    div.textContent=text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function dashboardView(section){
+
+    document
+    .getElementById("dashboardTitle")
+    .textContent=section;
+
+
+    document
+    .getElementById("dashboardText")
+    .innerHTML=
+    "<strong>"+escapeHTML(section)+"</strong><br><br>" +
+    "This section is ready to be connected to a secure healthcare backend and database.";
+
+}
+
+
+/* =====================================================
+   LIBRARY
+===================================================== */
+
+function libraryMessage(category){
+
+    alert(
+        category +
+        " library selected.\n\n" +
+        "In the full platform, this area will contain " +
+        "properly licensed books, articles, educational materials " +
+        "and other health resources."
+    );
+
+}
+
+
+/* =====================================================
+   EMERGENCY
+===================================================== */
+
+function emergencyAlert(){
+
+    alert(
+        "EMERGENCY NOTICE\n\n" +
+        "If the situation is serious or life-threatening, " +
+        "seek immediate medical attention at an appropriate " +
+        "emergency healthcare facility."
+    );
+
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+function openModal(id){
+
+    document
+    .getElementById(id)
+    .style.display="flex";
+
+}
+
+
+function closeModal(id){
+
+    document
+    .getElementById(id)
+    .style.display="none";
+
+}
+
+
+function openRegister(){
+
+    closeModal("loginModal");
+
+    openModal("registerModal");
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    showToast(
+        "Demo login submitted. Secure authentication requires a backend."
+    );
+
+    closeModal("loginModal");
+
+});
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+document
+.getElementById("registerForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const name=document
+    .getElementById("registerName")
+    .value;
+
+
+    const type=document
+    .getElementById("registerType")
+    .value;
+
+
+    showToast(
+        "Account registration submitted for " +
+        name +
+        " (" +
+        type +
+        ")."
+    );
+
+
+    closeModal("registerModal");
+
+
+    this.reset();
+
+});
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast=document
+    .getElementById("toast");
+
+
+    toast.textContent=message;
+
+    toast.style.display="block";
+
+
+    setTimeout(function(){
+
+        toast.style.display="none";
+
+    },3500);
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+===================================================== */
+
+window.addEventListener("click",function(event){
+
+    document
+    .querySelectorAll(".modal")
+    .forEach(function(modal){
+
+        if(event.target===modal){
+
+            modal.style.display="none";
+
+        }
+
     });
-  },{threshold:0.15});
-  revealEls.forEach(el=>io.observe(el));
 
-  const toggle = document.getElementById('menuToggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggle.addEventListener('click', ()=>{
-    const isShown = navLinks.style.display === 'flex';
-    navLinks.style.display = isShown ? 'none' : 'flex';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '58px';
-    navLinks.style.right = '24px';
-    navLinks.style.background = 'var(--paper-soft)';
-    navLinks.style.border = '1px solid var(--line)';
-    navLinks.style.borderRadius = '6px';
-    navLinks.style.padding = '16px 22px';
-    navLinks.style.gap = '14px';
-  });
+});
 
-  function handleSubmit(e){
-    e.preventDefault();
-    document.getElementById('form-note').style.display = 'block';
-    e.target.reset();
-    return false;
-  }
+
+/* =====================================================
+   LOAD LOCAL DASHBOARD COUNTERS
+===================================================== */
+
+window.addEventListener("load",function(){
+
+    document
+    .getElementById("appointmentCount")
+    .textContent=
+    localStorage.getItem("appointments") || 0;
+
+
+    document
+    .getElementById("complaintCount")
+    .textContent=
+    localStorage.getItem("complaints") || 0;
+
+});
+
+
 </script>
 
 </body>
